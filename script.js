@@ -62,32 +62,6 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // 4. Appointment Form Handling
-    const appointmentForm = document.getElementById('appointmentForm');
-    const formSuccess = document.getElementById('formSuccess');
-
-    if (appointmentForm) {
-        appointmentForm.addEventListener('submit', (e) => {
-            e.preventDefault();
-            // Simulate form submission
-            const btn = appointmentForm.querySelector('button[type="submit"]');
-            const originalText = btn.textContent;
-            btn.textContent = 'Sending...';
-            btn.disabled = true;
-
-            setTimeout(() => {
-                btn.textContent = originalText;
-                btn.disabled = false;
-                appointmentForm.reset();
-                formSuccess.classList.remove('hidden');
-                
-                // Hide success message after 5 seconds
-                setTimeout(() => {
-                    formSuccess.classList.add('hidden');
-                }, 5000);
-            }, 1500);
-        });
-    }
 
     // 5. Star Rating Interactivity for Feedback Form
     const stars = document.querySelectorAll('.star-rating i');

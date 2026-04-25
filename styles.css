@@ -2,18 +2,20 @@
    CSS Variables & Resets
    ========================================================================== */
 :root {
-    --primary: #0284c7;        /* Clean Medical Blue */
+    --primary: #0284c7;
+    /* Clean Medical Blue */
     --primary-light: #38bdf8;
     --primary-dark: #0369a1;
-    --secondary: #10b981;      /* Fresh Light Green */
+    --secondary: #10b981;
+    /* Fresh Light Green */
     --secondary-hover: #059669;
     --text-dark: #0f172a;
     --text-muted: #64748b;
     --bg-main: #ffffff;
     --bg-light: #f8fafc;
-    --shadow-sm: 0 1px 3px rgba(0,0,0,0.1);
-    --shadow-md: 0 4px 6px -1px rgba(0,0,0,0.1), 0 2px 4px -1px rgba(0,0,0,0.06);
-    --shadow-lg: 0 10px 15px -3px rgba(0,0,0,0.1), 0 4px 6px -2px rgba(0,0,0,0.05);
+    --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.1);
+    --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
     --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     --border-radius: 12px;
 }
@@ -54,13 +56,28 @@ ul {
 }
 
 /* Typography Utilities */
-.text-primary { color: var(--primary); }
-.text-secondary { color: var(--secondary); }
-.text-light-green { color: var(--secondary-light, #6ee7b7); }
-.text-white { color: var(--bg-main); }
-.bg-light { background-color: var(--bg-light); }
-.bg-primary-gradient { 
-    background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary) 100%); 
+.text-primary {
+    color: var(--primary);
+}
+
+.text-secondary {
+    color: var(--secondary);
+}
+
+.text-light-green {
+    color: var(--secondary-light, #6ee7b7);
+}
+
+.text-white {
+    color: var(--bg-main);
+}
+
+.bg-light {
+    background-color: var(--bg-light);
+}
+
+.bg-primary-gradient {
+    background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary) 100%);
 }
 
 /* Layout Container */
@@ -140,6 +157,28 @@ ul {
     background-color: var(--primary);
     color: white;
     transform: translateY(-2px);
+}
+
+/* Calendly Button Specific Styling */
+.calendly-btn {
+    position: relative;
+    overflow: hidden;
+}
+
+.calendly-btn::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 150%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.2);
+    transform: translate(-50%, -50%) rotate(45deg) translateY(-150%);
+    transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.calendly-btn:hover::after {
+    transform: translate(-50%, -50%) rotate(45deg) translateY(150%);
 }
 
 /* ==========================================================================
@@ -296,7 +335,8 @@ ul {
 .badge-icon {
     width: 50px;
     height: 50px;
-    background: #fef08a; /* Yellow */
+    background: #fef08a;
+    /* Yellow */
     color: #ca8a04;
     border-radius: 50%;
     display: flex;
@@ -317,14 +357,29 @@ ul {
 }
 
 @keyframes float {
-    0% { transform: translateY(0px); }
-    50% { transform: translateY(-20px); }
-    100% { transform: translateY(0px); }
+    0% {
+        transform: translateY(0px);
+    }
+
+    50% {
+        transform: translateY(-20px);
+    }
+
+    100% {
+        transform: translateY(0px);
+    }
 }
 
 @keyframes slideUp {
-    from { opacity: 0; transform: translateY(20px); }
-    to { opacity: 1; transform: translateY(0); }
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 /* ==========================================================================
@@ -411,7 +466,7 @@ ul {
     box-shadow: var(--shadow-sm);
     text-align: center;
     transition: var(--transition);
-    border: 1px solid rgba(0,0,0,0.05);
+    border: 1px solid rgba(0, 0, 0, 0.05);
 }
 
 .service-card:hover {
@@ -474,7 +529,7 @@ ul {
 .contact-item i {
     font-size: 1.5rem;
     color: var(--secondary);
-    background: rgba(255,255,255,0.1);
+    background: rgba(255, 255, 255, 0.1);
     width: 50px;
     height: 50px;
     display: flex;
@@ -500,57 +555,6 @@ ul {
     color: var(--text-dark);
 }
 
-.booking-form .form-group {
-    margin-bottom: 1.25rem;
-}
-
-.booking-form .form-row {
-    display: flex;
-    gap: 1rem;
-}
-
-.booking-form .half {
-    flex: 1;
-}
-
-.booking-form label {
-    display: block;
-    font-weight: 500;
-    margin-bottom: 0.5rem;
-    font-size: 0.9rem;
-}
-
-.booking-form input,
-.booking-form textarea {
-    width: 100%;
-    padding: 0.875rem;
-    border: 1px solid #cbd5e1;
-    border-radius: 8px;
-    font-family: inherit;
-    font-size: 1rem;
-    transition: var(--transition);
-}
-
-.booking-form input:focus,
-.booking-form textarea:focus {
-    outline: none;
-    border-color: var(--primary);
-    box-shadow: 0 0 0 3px rgba(2, 132, 199, 0.1);
-}
-
-.form-success {
-    margin-top: 1rem;
-    padding: 1rem;
-    background: #dcfce7;
-    color: #166534;
-    border-radius: 8px;
-    text-align: center;
-    font-weight: 500;
-}
-
-.hidden {
-    display: none;
-}
 
 /* ==========================================================================
    Feedback Section
@@ -746,7 +750,7 @@ ul {
 .social-links a {
     width: 40px;
     height: 40px;
-    background: rgba(255,255,255,0.1);
+    background: rgba(255, 255, 255, 0.1);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -811,6 +815,7 @@ ul {
    Responsive Design
    ========================================================================== */
 @media (max-width: 992px) {
+
     .hero-container,
     .about-container,
     .booking-container,
@@ -819,19 +824,19 @@ ul {
     .footer-container {
         grid-template-columns: 1fr;
     }
-    
+
     .services-grid {
         grid-template-columns: repeat(2, 1fr);
     }
-    
+
     .hero-title {
         font-size: 3rem;
     }
-    
+
     .hero-image {
         order: -1;
     }
-    
+
     .location-container {
         display: flex;
         flex-direction: column-reverse;
@@ -842,7 +847,7 @@ ul {
     .mobile-toggle {
         display: block;
     }
-    
+
     .nav-links {
         position: absolute;
         top: 100%;
@@ -855,35 +860,31 @@ ul {
         clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
         transition: clip-path 0.3s ease-in-out;
     }
-    
+
     .nav-links.active {
         clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
     }
-    
+
     .nav-link {
         width: 100%;
         padding: 1rem 2rem;
         border-bottom: 1px solid #f1f5f9;
     }
-    
+
     .nav-btn {
         margin: 1rem 2rem;
         width: calc(100% - 4rem);
     }
-    
+
     .hero-title {
         font-size: 2.5rem;
     }
-    
+
     .hero-actions {
         flex-direction: column;
     }
-    
-    .booking-form .form-row {
-        flex-direction: column;
-        gap: 0;
-    }
-    
+
+
     .services-grid {
         grid-template-columns: 1fr;
     }
